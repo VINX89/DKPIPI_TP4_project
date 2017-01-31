@@ -100,7 +100,8 @@ tt_stripping.StrippingList = ['StrippingD2hhh_KPPLineDecision']
 tt_tagging = tuple.addTupleTool("TupleToolTagging")
 tt_tagging.Verbose = True
 tt_tagging.StoreTaggersInfo = True
-tt_tagging.TagBeautyOnly = False
+tt_tagging.TagBeautyOnly = False #we want to tag D mesons!
+tt_tagging.ActiveTaggers = ["SS_Pion", "SS_PionBDT", "SS_Proton"]
 
 #TupleToolGeometry
 tt_geometry = tuple.addTupleTool("TupleToolGeometry")
@@ -154,7 +155,7 @@ DaVinci().PrintFreq = 5000
 DaVinci().DataType = "2012"
 
 #Input file for quick tests
-#from GaudiConf import IOHelper
-#IOHelper().inputFiles([
-#    'root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2012/ALLSTREAMS.DST/00058275/0000/00058275_00000001_2.AllStreams.dst'
-#    ], clear=True)
+from GaudiConf import IOHelper
+IOHelper().inputFiles([
+    'root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2012/ALLSTREAMS.DST/00058275/0000/00058275_00000001_2.AllStreams.dst'
+    ], clear=True)
